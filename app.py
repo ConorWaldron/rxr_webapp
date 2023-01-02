@@ -8,6 +8,7 @@ from scipy.integrate import odeint
 import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
+import os
 
 app = Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 server = app.server      #exposes server of dash app as an objective that gunicorn can pick
@@ -420,4 +421,5 @@ def func(nclickslocal, Ca0, Cb0, Cc0, Cd0, TRXR, SimTime, OrderA, OrderB, PreExp
         return dcc.send_data_frame(MyDataSetLocal.to_excel, "WebApp_Batch_Simulation.xls")
 
 if __name__ == '__main__':
-    app.run_server()  # Set debug to true makes webapp automatically update, when user clicks refresh
+    #app.run_server()  # Set debug to true makes webapp automatically update, when user clicks refresh
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))

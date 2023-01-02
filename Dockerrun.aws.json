@@ -1,0 +1,14 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+    "Name": "conorwaldron512/rxr_webapp:1.0",
+    "Update": "true"
+  },
+  "Ports": [
+    {
+      "ContainerPort": 5000,
+      "HostPort": 8000
+    }
+  ],
+  "Logging": "/var/log/nginx"
+}
